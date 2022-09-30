@@ -1,7 +1,7 @@
 let hiddenNumber = Math.floor(Math.random() * 21);
 let score = 5;
 let highscore = 1;
-let arr = [];
+let my_guesses = [];
 
 const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
@@ -9,9 +9,9 @@ const displayMessage = function (message) {
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   console.log(guess, hiddenNumber);
-  arr.push(guess);
-  console.log(arr);
-  document.querySelector(".tahmin").textContent = arr;
+  my_guesses.push(guess);
+  console.log(my_guesses);
+  document.querySelector(".tahmin").textContent = my_guesses;
   if (guess == hiddenNumber) {
     highscore = score * 10;
     displayMessage("Correct Number!");
@@ -37,8 +37,8 @@ document.querySelector(".check").addEventListener("click", function () {
   }
 });
 document.querySelector(".again").addEventListener("click", function () {
-  arr = [];
-  document.querySelector(".tahmin").textContent = arr;
+  my_guesses = [];
+  document.querySelector(".tahmin").textContent = my_guesses;
   score = 5;
   highscore = 0;
   hiddenNumber = Math.floor(Math.random() * 20);
